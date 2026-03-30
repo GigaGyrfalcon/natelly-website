@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natelly - Rally Room</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+        color: #2d1730;
+        background:
+          radial-gradient(circle at top left, rgba(255,170,138,0.26), transparent 22%),
+          linear-gradient(180deg, #fff5f3 0%, #f8ebef 100%);
+      }
+      .shell { width: min(1150px, calc(100% - 36px)); margin: 0 auto; }
+      .hero {
+        min-height: 100vh;
+        padding: 28px 0 52px;
+        display: grid;
+        grid-template-rows: auto 1fr;
+      }
+      .nav {
+        display: flex; justify-content: space-between; align-items: center; padding-bottom: 28px;
+      }
+      .brand { font-weight: 900; font-size: 1.2rem; }
+      .menu { display: flex; gap: 14px; color: #7e6278; }
+      .grid {
+        display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 26px; align-items: center;
+      }
+      .eyebrow {
+        display: inline-flex; padding: 8px 12px; border-radius: 999px;
+        background: #ffd7df; color: #9c2f4d; font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+      }
+      h1 {
+        margin: 18px 0 14px;
+        font-size: clamp(3rem, 7vw, 6rem);
+        line-height: 0.9;
+        max-width: 8.5ch;
+      }
+      .sub { max-width: 55ch; color: #6a5567; line-height: 1.68; font-size: 1.04rem; }
+      .cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+      .btn {
+        padding: 14px 18px; border-radius: 18px; text-decoration: none; font-weight: 800; border: 1px solid rgba(45,23,48,0.08);
+      }
+      .btn.primary { background: linear-gradient(135deg, #7a2048 0%, #c44068 55%, #f67b53 100%); color: white; }
+      .btn.secondary { background: rgba(255,255,255,0.8); color: #3a1f3c; }
+      .art { position: relative; min-height: 580px; }
+      .panel {
+        position: absolute; border-radius: 34px; border: 1px solid rgba(45,23,48,0.08); box-shadow: 0 24px 50px rgba(91,40,69,0.11);
+      }
+      .panel.main {
+        inset: 18px 0 28px 84px;
+        background:
+          radial-gradient(circle at 68% 22%, rgba(255,255,255,0.32), transparent 16%),
+          linear-gradient(135deg, #6f2144 0%, #b53d62 48%, #f27d56 100%);
+      }
+      .panel.side {
+        width: 210px; left: 0; top: 82px; background: rgba(255,255,255,0.78); backdrop-filter: blur(18px); padding: 18px;
+      }
+      .panel.bottom {
+        width: 250px; right: 18px; bottom: 0; background: rgba(255,255,255,0.82); backdrop-filter: blur(18px); padding: 18px;
+      }
+      .bar, .arch {
+        position: absolute; background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.2);
+      }
+      .bar {
+        width: 156px; height: 58px; border-radius: 999px; left: 28px; top: 28px;
+      }
+      .arch {
+        width: 112px; height: 146px; border-radius: 58px 58px 22px 22px; right: 28px; bottom: 26px;
+      }
+      .headline-chip {
+        position: absolute; left: 28px; bottom: 112px; max-width: 250px; color: white;
+        padding: 16px; border-radius: 24px; background: rgba(255,255,255,0.12);
+      }
+      .panel h3 { margin: 0 0 8px; }
+      .panel p, .headline-chip p { margin: 0; line-height: 1.55; }
+      .panel.side p, .panel.bottom p { color: #6a5567; }
+      .section { padding: 0 0 56px; }
+      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+      .card {
+        padding: 22px; border-radius: 28px; background: rgba(255,255,255,0.72); border: 1px solid rgba(45,23,48,0.08);
+      }
+      .card h3 { margin: 0 0 10px; }
+      .card p { margin: 0; line-height: 1.58; color: #6a5567; }
+      @media (max-width: 900px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="shell nav">
+        <div class="brand">Natelly</div>
+        <div class="menu"><span>Voice</span><span>Collective</span><span>Future</span></div>
+      </div>
+      <div class="shell grid">
+        <div>
+          <div class="eyebrow">Audience Variant / Rally Room</div>
+          <h1>Open minds still need a strong point of view.</h1>
+          <div class="sub">
+            Inspired by feminist community-building, this direction emphasizes
+            confidence, solidarity, and conversation. It is warm, but with more
+            stance, energy, and presence than the softer routes.
+          </div>
+          <div class="cta">
+            <a class="btn primary" href="#">Join the conversation</a>
+            <a class="btn secondary" href="#">See what we stand for</a>
+          </div>
+        </div>
+        <div class="art">
+          <div class="panel main">
+            <div class="bar"></div>
+            <div class="arch"></div>
+            <div class="headline-chip">
+              <p>Shape language here is still rounded, but stronger: banners, arches, and bold collective forms instead of soft background-only accents.</p>
+            </div>
+          </div>
+          <div class="panel side">
+            <h3>Shape principle</h3>
+            <p>Poster-like bars, statement arches, layered placard cards, and bold color blocks that feel collective and expressive.</p>
+          </div>
+          <div class="panel bottom">
+            <h3>Emotional posture</h3>
+            <p>Confident, inclusive, articulate, culturally alive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section">
+      <div class="cards">
+        <div class="card">
+          <h3>Primary shapes</h3>
+          <p>Arches, banners, placards, stacked statement cards, rounded blocks with more contrast.</p>
+        </div>
+        <div class="card">
+          <h3>Typography</h3>
+          <p>More assertive headlines, a little tighter rhythm, and strong pull-quote treatment.</p>
+        </div>
+        <div class="card">
+          <h3>Design principle</h3>
+          <p>Community with backbone. The page should feel inclusive and active, not soft to the point of being vague.</p>
+        </div>
+        <div class="card">
+          <h3>Emotional tone</h3>
+          <p>Bold, collective, expressive, energizing, grounded.</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

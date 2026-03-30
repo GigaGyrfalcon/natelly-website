@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natelly Template Gallery</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+        color: #251d2b;
+        background:
+          radial-gradient(circle at top left, rgba(255, 194, 153, 0.32), transparent 24%),
+          radial-gradient(circle at top right, rgba(126, 103, 255, 0.16), transparent 22%),
+          linear-gradient(180deg, #fff8f2 0%, #f7efe9 100%);
+      }
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 56px 20px 72px;
+      }
+      .hero {
+        margin-bottom: 28px;
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.78rem;
+        color: #7c697d;
+        margin-bottom: 12px;
+      }
+      h1 {
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        line-height: 0.95;
+        margin: 0 0 14px;
+        max-width: 10ch;
+      }
+      .lead {
+        max-width: 72ch;
+        color: #56495a;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 22px;
+        margin-top: 30px;
+      }
+      .card {
+        border-radius: 28px;
+        overflow: hidden;
+        background: rgba(255,255,255,0.78);
+        border: 1px solid rgba(45,28,52,0.08);
+        box-shadow: 0 22px 44px rgba(49,34,57,0.08);
+      }
+      .art {
+        min-height: 220px;
+        padding: 20px;
+        position: relative;
+        color: white;
+      }
+      .card h2 {
+        margin: 16px 0 8px;
+        font-size: 1.8rem;
+        line-height: 0.98;
+      }
+      .card p {
+        margin: 0;
+        line-height: 1.5;
+        color: rgba(255,255,255,0.9);
+        max-width: 28ch;
+      }
+      .body {
+        padding: 20px;
+        display: grid;
+        gap: 14px;
+      }
+      .pill {
+        display: inline-flex;
+        width: fit-content;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .body-copy {
+        color: #5d5260;
+        line-height: 1.55;
+      }
+      .link {
+        display: inline-flex;
+        width: fit-content;
+        padding: 12px 16px;
+        border-radius: 16px;
+        text-decoration: none;
+        font-weight: 700;
+        color: #1f1623;
+        background: #fff;
+        border: 1px solid rgba(31,22,35,0.1);
+      }
+      .shape {
+        position: absolute;
+        border: 1px solid rgba(255,255,255,0.22);
+        background: rgba(255,255,255,0.12);
+      }
+      .open-house .art {
+        background: linear-gradient(135deg, #7a5cff 0%, #d85f88 55%, #ff9f74 100%);
+      }
+      .open-house .pill { background: #ffe1ec; color: #a43a66; }
+      .open-house .shape.one {
+        width: 120px; height: 150px; border-radius: 70px 70px 24px 24px; right: 18px; bottom: 18px;
+      }
+      .open-house .shape.two {
+        width: 82px; height: 82px; border-radius: 50%; right: 116px; top: 18px;
+      }
+      .play-loop .art {
+        background: linear-gradient(135deg, #153c8a 0%, #0ea8ab 48%, #ffd264 100%);
+      }
+      .play-loop .pill { background: #d7fff1; color: #177061; }
+      .play-loop .shape.one {
+        width: 96px; height: 96px; border-radius: 28px; right: 22px; top: 22px; transform: rotate(16deg);
+      }
+      .play-loop .shape.two {
+        width: 132px; height: 72px; border-radius: 999px; left: 22px; bottom: 20px;
+      }
+      .kind-current .art {
+        color: #23322c;
+        background: linear-gradient(135deg, #f8e8c4 0%, #cceecf 52%, #8ddbc9 100%);
+      }
+      .kind-current .art p { color: rgba(35,50,44,0.82); }
+      .kind-current .pill { background: #e4f7cf; color: #52752b; }
+      .kind-current .shape.one {
+        width: 118px; height: 118px; border-radius: 50%; right: 20px; top: 22px; border-color: rgba(35,50,44,0.12); background: rgba(255,255,255,0.28);
+      }
+      .kind-current .shape.two {
+        width: 144px; height: 84px; border-radius: 48px; left: 20px; bottom: 22px; border-color: rgba(35,50,44,0.12); background: rgba(255,255,255,0.22);
+      }
+      .rally-room .art {
+        background: linear-gradient(135deg, #6f2144 0%, #b23a61 42%, #f47a54 100%);
+      }
+      .rally-room .pill { background: #ffd8de; color: #9e2f4f; }
+      .rally-room .shape.one {
+        width: 90px; height: 130px; border-radius: 44px 44px 18px 18px; right: 24px; bottom: 18px;
+      }
+      .rally-room .shape.two {
+        width: 140px; height: 58px; border-radius: 999px; left: 20px; top: 26px;
+      }
+      .footer-note {
+        margin-top: 28px;
+        padding: 20px 22px;
+        border-radius: 22px;
+        background: rgba(255,255,255,0.66);
+        border: 1px solid rgba(45,28,52,0.08);
+        color: #5a4f5d;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">Natelly Template Gallery</div>
+        <h1>Four homepage vibes to react to.</h1>
+        <p class="lead">
+          I translated your Open House direction into four visual templates: one core
+          brand route plus three variants inspired by the kinds of people drawn to
+          your app ideas. Open each one to see how the shapes, type rhythm, and
+          emotional tone change.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="card open-house">
+          <div class="art">
+            <div class="pill">Core Brand</div>
+            <h2>Modern Hospitality</h2>
+            <p>Warm, open, and polished. A creative company that feels easy to enter.</p>
+            <div class="shape one"></div>
+            <div class="shape two"></div>
+          </div>
+          <div class="body">
+            <div class="body-copy">Best if Natelly should feel inviting, thoughtful, and broadly appealing from day one.</div>
+            <a class="link" href="./template-01-modern-hospitality.html">Open template</a>
+          </div>
+        </article>
+
+        <article class="card play-loop">
+          <div class="art">
+            <div class="pill">Idle Game Audience</div>
+            <h2>Play Loop</h2>
+            <p>Curious, rewarding, energetic, and slightly mischievous without losing polish.</p>
+            <div class="shape one"></div>
+            <div class="shape two"></div>
+          </div>
+          <div class="body">
+            <div class="body-copy">For people who like progress, delight, collectibles, systems, and playful momentum.</div>
+            <a class="link" href="./template-02-play-loop.html">Open template</a>
+          </div>
+        </article>
+
+        <article class="card kind-current">
+          <div class="art">
+            <div class="pill">Kindness App Audience</div>
+            <h2>Kind Current</h2>
+            <p>Gentle, uplifting, and sincere. Goodness feels social, active, and visible.</p>
+            <div class="shape one"></div>
+            <div class="shape two"></div>
+          </div>
+          <div class="body">
+            <div class="body-copy">For people who care about daily intention, positive habits, community care, and emotional warmth.</div>
+            <a class="link" href="./template-03-kind-current.html">Open template</a>
+          </div>
+        </article>
+
+        <article class="card rally-room">
+          <div class="art">
+            <div class="pill">Feminist Community</div>
+            <h2>Rally Room</h2>
+            <p>Confident, collective, expressive, and bold. Community with purpose and voice.</p>
+            <div class="shape one"></div>
+            <div class="shape two"></div>
+          </div>
+          <div class="body">
+            <div class="body-copy">For people who value solidarity, conversation, identity, momentum, and real cultural energy.</div>
+            <a class="link" href="./template-04-rally-room.html">Open template</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="footer-note">
+        The point here is not that Natelly becomes an idle game or feminist app brand. It’s that each audience reveals a different emotional design language. Once you tell me which one feels closest, I can build the real Natelly homepage in that lane.
+      </section>
+    </main>
+  </body>
+</html>

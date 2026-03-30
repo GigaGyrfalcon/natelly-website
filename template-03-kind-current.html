@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natelly - Kind Current</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+        color: #25352e;
+        background:
+          radial-gradient(circle at top left, rgba(247,223,178,0.48), transparent 24%),
+          linear-gradient(180deg, #fffaf1 0%, #eff8ef 100%);
+      }
+      .shell { width: min(1140px, calc(100% - 36px)); margin: 0 auto; }
+      .hero {
+        min-height: 100vh;
+        padding: 28px 0 52px;
+        display: grid;
+        grid-template-rows: auto 1fr;
+      }
+      .nav {
+        display: flex; justify-content: space-between; align-items: center; padding-bottom: 28px;
+      }
+      .brand { font-weight: 900; font-size: 1.2rem; }
+      .menu { display: flex; gap: 14px; color: #65766d; }
+      .grid {
+        display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 26px; align-items: center;
+      }
+      .eyebrow {
+        display: inline-flex; padding: 8px 12px; border-radius: 999px;
+        background: #e5f6cf; color: #5d7b2b; font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+      }
+      h1 {
+        margin: 18px 0 14px;
+        font-size: clamp(3rem, 7vw, 5.8rem);
+        line-height: 0.93;
+        max-width: 9ch;
+      }
+      .sub { max-width: 56ch; color: #617069; line-height: 1.7; font-size: 1.04rem; }
+      .cta {
+        display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px;
+      }
+      .btn {
+        padding: 14px 18px; border-radius: 18px; text-decoration: none; font-weight: 800; border: 1px solid rgba(37,53,46,0.08);
+      }
+      .btn.primary { background: linear-gradient(135deg, #9fdab8 0%, #72cdbf 100%); color: #17352e; }
+      .btn.secondary { background: rgba(255,255,255,0.8); color: #294136; }
+      .art { position: relative; min-height: 560px; }
+      .bubble {
+        position: absolute;
+        border-radius: 36px;
+        border: 1px solid rgba(37,53,46,0.08);
+        box-shadow: 0 24px 48px rgba(66,92,76,0.1);
+      }
+      .bubble.main {
+        inset: 36px 18px 18px 60px;
+        background:
+          radial-gradient(circle at 30% 28%, rgba(255,255,255,0.42), transparent 18%),
+          linear-gradient(135deg, #f6e7bf 0%, #c8efca 50%, #87d8c8 100%);
+      }
+      .bubble.back {
+        width: 180px; height: 180px; left: 0; top: 10px; border-radius: 50%;
+        background: rgba(255,255,255,0.58);
+      }
+      .bubble.message {
+        width: 260px; right: 0; bottom: 36px; padding: 20px;
+        background: rgba(255,255,255,0.82); backdrop-filter: blur(18px);
+      }
+      .circle, .capsule {
+        position: absolute; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.22);
+      }
+      .circle { width: 100px; height: 100px; border-radius: 50%; right: 28px; top: 26px; }
+      .capsule { width: 170px; height: 70px; border-radius: 999px; left: 28px; bottom: 28px; }
+      .quote {
+        position: absolute; left: 28px; bottom: 120px; max-width: 240px;
+        color: #1d372f; background: rgba(255,255,255,0.2); padding: 16px; border-radius: 24px;
+      }
+      .message h3 { margin: 0 0 8px; }
+      .message p, .quote p { margin: 0; line-height: 1.55; color: #4f6158; }
+      .section { padding: 0 0 56px; }
+      .cards {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;
+      }
+      .card {
+        padding: 22px; border-radius: 28px; background: rgba(255,255,255,0.7); border: 1px solid rgba(37,53,46,0.08);
+      }
+      .card h3 { margin: 0 0 10px; }
+      .card p { margin: 0; line-height: 1.58; color: #617069; }
+      @media (max-width: 900px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="shell nav">
+        <div class="brand">Natelly</div>
+        <div class="menu"><span>Care</span><span>Habits</span><span>Community</span></div>
+      </div>
+      <div class="shell grid">
+        <div>
+          <div class="eyebrow">Audience Variant / Kind Current</div>
+          <h1>Ideas that move people should feel good to be around.</h1>
+          <div class="sub">
+            Inspired by a kindness and good-deeds app, this direction favors
+            gentle curves, calm optimism, and designs that feel emotionally safe,
+            sincere, and active rather than sentimental.
+          </div>
+          <div class="cta">
+            <a class="btn primary" href="#">See the values</a>
+            <a class="btn secondary" href="#">Meet the people</a>
+          </div>
+        </div>
+        <div class="art">
+          <div class="bubble back"></div>
+          <div class="bubble main">
+            <div class="circle"></div>
+            <div class="capsule"></div>
+            <div class="quote">
+              <p>Design language here is softer and more human, with circles and flowing capsules instead of rigid structures.</p>
+            </div>
+          </div>
+          <div class="bubble message">
+            <h3>Shape principle</h3>
+            <p>Flowing capsules, circles, conversation bubbles, and calm layered surfaces that suggest generosity and care.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section">
+      <div class="cards">
+        <div class="card">
+          <h3>Primary shapes</h3>
+          <p>Circles, soft capsules, floating message cards, gentle wave divisions.</p>
+        </div>
+        <div class="card">
+          <h3>Typography</h3>
+          <p>Warm but clean headlines with relaxed body copy and a very readable rhythm.</p>
+        </div>
+        <div class="card">
+          <h3>Design principle</h3>
+          <p>Sincerity without blandness. The page should feel kind, not childish or vague.</p>
+        </div>
+        <div class="card">
+          <h3>Emotional tone</h3>
+          <p>Encouraging, grounded, restorative, emotionally intelligent.</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

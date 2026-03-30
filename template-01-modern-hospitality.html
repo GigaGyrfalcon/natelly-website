@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natelly - Modern Hospitality</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+        color: #261d29;
+        background:
+          radial-gradient(circle at top left, rgba(255,173,132,0.25), transparent 22%),
+          linear-gradient(180deg, #fff8f2 0%, #f8eee7 100%);
+      }
+      .page { overflow: hidden; }
+      .hero {
+        min-height: 100vh;
+        padding: 28px 22px 48px;
+        display: grid;
+        grid-template-rows: auto 1fr;
+      }
+      .nav, .hero-inner, .section, .footer {
+        width: min(1160px, 100%);
+        margin: 0 auto;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0 28px;
+      }
+      .brand { font-weight: 800; letter-spacing: 0.03em; font-size: 1.2rem; }
+      .nav-links {
+        display: flex;
+        gap: 12px;
+        color: #715d72;
+        font-size: 0.95rem;
+      }
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .eyebrow {
+        display: inline-flex;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.75);
+        border: 1px solid rgba(38,29,41,0.08);
+        color: #8c6781;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.76rem;
+      }
+      h1 {
+        font-size: clamp(3rem, 7vw, 6.3rem);
+        line-height: 0.92;
+        margin: 18px 0 16px;
+        max-width: 9ch;
+      }
+      .sub {
+        max-width: 56ch;
+        line-height: 1.65;
+        color: #5d505f;
+        font-size: 1.05rem;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 24px;
+      }
+      .btn {
+        padding: 14px 18px;
+        border-radius: 18px;
+        text-decoration: none;
+        font-weight: 700;
+        border: 1px solid rgba(38,29,41,0.08);
+      }
+      .btn.primary {
+        background: linear-gradient(135deg, #7a5cff 0%, #db6185 100%);
+        color: white;
+      }
+      .btn.secondary {
+        background: rgba(255,255,255,0.8);
+        color: #2b1f2f;
+      }
+      .hero-art {
+        position: relative;
+        min-height: 580px;
+      }
+      .arch {
+        position: absolute;
+        right: 0;
+        width: min(460px, 100%);
+        aspect-ratio: 0.86;
+        border-radius: 220px 220px 28px 28px;
+        background: linear-gradient(180deg, #fff0ec 0%, #ffd7c8 100%);
+        border: 1px solid rgba(38,29,41,0.08);
+        box-shadow: 0 28px 60px rgba(70,45,62,0.1);
+      }
+      .arch.main {
+        top: 16px;
+        background:
+          radial-gradient(circle at 50% 28%, rgba(255,255,255,0.55), transparent 18%),
+          linear-gradient(180deg, #8b6dff 0%, #df6996 55%, #ffaf78 100%);
+      }
+      .arch.second {
+        right: 120px;
+        top: 122px;
+        width: 240px;
+        opacity: 0.55;
+      }
+      .card {
+        position: absolute;
+        border-radius: 28px;
+        background: rgba(255,255,255,0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(38,29,41,0.08);
+        box-shadow: 0 20px 40px rgba(52,32,51,0.09);
+      }
+      .card.note {
+        left: 0;
+        top: 90px;
+        width: 240px;
+        padding: 18px;
+      }
+      .card.note strong { display: block; margin-bottom: 8px; }
+      .card.note p, .card.metric p { margin: 0; color: #5d505f; line-height: 1.5; }
+      .card.metric {
+        right: 8px;
+        bottom: 44px;
+        width: 220px;
+        padding: 18px;
+      }
+      .metric-number {
+        font-size: 2.3rem;
+        font-weight: 800;
+        margin-bottom: 6px;
+      }
+      .section {
+        padding: 28px 0 60px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+      }
+      .panel {
+        padding: 22px;
+        border-radius: 28px;
+        background: rgba(255,255,255,0.72);
+        border: 1px solid rgba(38,29,41,0.08);
+      }
+      .panel h3 { margin: 0 0 10px; font-size: 1.15rem; }
+      .panel p { margin: 0; line-height: 1.58; color: #5d505f; }
+      .footer {
+        padding: 0 0 60px;
+        color: #776a78;
+      }
+      @media (max-width: 900px) {
+        .hero-inner { grid-template-columns: 1fr; }
+        .hero-art { min-height: 500px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero">
+        <div class="nav">
+          <div class="brand">Natelly</div>
+          <div class="nav-links"><span>Ideas</span><span>People</span><span>About</span></div>
+        </div>
+        <div class="hero-inner">
+          <div>
+            <div class="eyebrow">Open House / Modern Hospitality</div>
+            <h1>New ideas feel better when the room feels open.</h1>
+            <div class="sub">
+              This direction uses portal shapes, warm gradients, and generous spacing
+              to make innovation feel welcoming. It is polished, people-first, and
+              easy to trust.
+            </div>
+            <div class="actions">
+              <a class="btn primary" href="#">Build with Natelly</a>
+              <a class="btn secondary" href="#">See the culture</a>
+            </div>
+          </div>
+          <div class="hero-art">
+            <div class="arch main"></div>
+            <div class="arch second"></div>
+            <div class="card note">
+              <strong>Shape principle</strong>
+              <p>Arches and rounded panels suggest invitation, openness, and thoughtful structure.</p>
+            </div>
+            <div class="card metric">
+              <div class="metric-number">Soft + clear</div>
+              <p>Friendly type rhythm, editorial spacing, and layered warmth without clutter.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="grid">
+          <div class="panel">
+            <h3>Primary shapes</h3>
+            <p>Arches, rounded cards, doorway motifs, layered windows.</p>
+          </div>
+          <div class="panel">
+            <h3>Typography</h3>
+            <p>Sora-style headlines with clean sans-serif body text and airy line spacing.</p>
+          </div>
+          <div class="panel">
+            <h3>Design principle</h3>
+            <p>Invitation over intimidation. Nothing should feel too cold, busy, or over-engineered.</p>
+          </div>
+          <div class="panel">
+            <h3>Emotional tone</h3>
+            <p>Welcoming, optimistic, curious, socially intelligent.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer section footer">Template exploration for Natelly.</div>
+    </div>
+  </body>
+</html>

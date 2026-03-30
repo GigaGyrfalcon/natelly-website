@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natelly - Play Loop</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+        color: #102134;
+        background:
+          radial-gradient(circle at top left, rgba(255,210,98,0.34), transparent 22%),
+          linear-gradient(180deg, #f6fbff 0%, #ebf8f4 100%);
+      }
+      .wrap { width: min(1160px, calc(100% - 36px)); margin: 0 auto; }
+      .hero {
+        min-height: 100vh;
+        padding: 28px 0 52px;
+        display: grid;
+        grid-template-rows: auto 1fr;
+      }
+      .nav {
+        display: flex; justify-content: space-between; align-items: center; padding-bottom: 26px;
+      }
+      .brand { font-weight: 900; font-size: 1.2rem; }
+      .menu { display: flex; gap: 14px; color: #4d6582; }
+      .hero-grid {
+        display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 24px; align-items: center;
+      }
+      .eyebrow {
+        display: inline-flex; padding: 8px 12px; border-radius: 999px;
+        background: #ddfff1; color: #197367; font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
+      }
+      h1 {
+        margin: 18px 0 14px;
+        font-size: clamp(3rem, 7vw, 6rem);
+        line-height: 0.9;
+        max-width: 8.5ch;
+      }
+      .sub { max-width: 54ch; color: #4b617b; line-height: 1.65; font-size: 1.04rem; }
+      .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+      .btn {
+        text-decoration: none; font-weight: 800; padding: 14px 18px; border-radius: 18px;
+        border: 1px solid rgba(16,33,52,0.08);
+      }
+      .primary { background: linear-gradient(135deg, #17428d 0%, #10aba9 100%); color: white; }
+      .secondary { background: rgba(255,255,255,0.8); color: #13253a; }
+      .art {
+        min-height: 560px; position: relative;
+      }
+      .stack {
+        position: absolute;
+        border-radius: 34px;
+        border: 1px solid rgba(16,33,52,0.08);
+        box-shadow: 0 24px 50px rgba(15,48,85,0.12);
+        overflow: hidden;
+      }
+      .stack.main {
+        inset: 18px 0 44px 110px;
+        background:
+          radial-gradient(circle at 72% 22%, rgba(255,255,255,0.45), transparent 15%),
+          linear-gradient(135deg, #153c8a 0%, #0ea8ab 58%, #ffd264 100%);
+      }
+      .stack.back {
+        width: 220px; height: 220px; left: 18px; top: 34px;
+        transform: rotate(-12deg);
+        background: rgba(255,255,255,0.66);
+      }
+      .stack.front {
+        width: 250px; right: 24px; bottom: 0; padding: 18px;
+        background: rgba(255,255,255,0.82);
+        backdrop-filter: blur(18px);
+      }
+      .shape {
+        position: absolute; border-radius: 26px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22);
+      }
+      .shape.one { width: 90px; height: 90px; right: 26px; top: 24px; transform: rotate(18deg); }
+      .shape.two { width: 150px; height: 56px; left: 24px; bottom: 26px; border-radius: 999px; }
+      .meter {
+        position: absolute; left: 24px; bottom: 24px; right: 24px;
+        padding: 16px; border-radius: 22px; background: rgba(255,255,255,0.16); color: white;
+      }
+      .meter strong { display: block; font-size: 1.8rem; margin-bottom: 4px; }
+      .front h3 { margin: 0 0 8px; }
+      .front p { margin: 0; color: #4e6179; line-height: 1.55; }
+      .section { padding: 0 0 56px; }
+      .grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;
+      }
+      .tile {
+        padding: 22px; border-radius: 28px; background: rgba(255,255,255,0.74); border: 1px solid rgba(16,33,52,0.08);
+      }
+      .tile h3 { margin: 0 0 10px; }
+      .tile p { margin: 0; line-height: 1.58; color: #4b617b; }
+      @media (max-width: 900px) {
+        .hero-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="wrap nav">
+        <div class="brand">Natelly</div>
+        <div class="menu"><span>Loops</span><span>Systems</span><span>Joy</span></div>
+      </div>
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Audience Variant / Play Loop</div>
+          <h1>Smart ideas with a little reward built in.</h1>
+          <div class="sub">
+            Inspired by people who love idle games and progress systems, this look
+            leans into momentum, energy, collectible shapes, and a feeling of
+            satisfying advancement.
+          </div>
+          <div class="cta-row">
+            <a class="btn primary" href="#">See what is next</a>
+            <a class="btn secondary" href="#">Explore the system</a>
+          </div>
+        </div>
+        <div class="art">
+          <div class="stack back"></div>
+          <div class="stack main">
+            <div class="shape one"></div>
+            <div class="shape two"></div>
+            <div class="meter">
+              <strong>+27%</strong>
+              Curiosity, progression, delight, playful intelligence.
+            </div>
+          </div>
+          <div class="stack front">
+            <h3>Shape principle</h3>
+            <p>Stacked panels, badge moments, rounded meters, tilted cards, and modular blocks that feel rewarding to look at.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="grid">
+        <div class="tile">
+          <h3>Primary shapes</h3>
+          <p>Badges, progress bars, soft cubes, collectible card stacks, rounded counters.</p>
+        </div>
+        <div class="tile">
+          <h3>Typography</h3>
+          <p>Friendly geometric headlines with concise UI-like labels and energetic spacing.</p>
+        </div>
+        <div class="tile">
+          <h3>Design principle</h3>
+          <p>Delight through feedback. The layout should feel responsive, layered, and slightly gameful.</p>
+        </div>
+        <div class="tile">
+          <h3>Emotional tone</h3>
+          <p>Playful, curious, rewarding, optimistic, bright.</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

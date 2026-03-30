@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natelly Theme Profiles</title>
+    <style>
+      :root {
+        --page-bg: #f5f1e8;
+        --page-text: #1f1f1f;
+        --page-muted: #5f625d;
+        --card-bg: rgba(255, 255, 255, 0.82);
+        --card-border: rgba(31, 31, 31, 0.08);
+        --shadow: 0 20px 45px rgba(36, 34, 32, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(241, 182, 94, 0.3), transparent 28%),
+          radial-gradient(circle at top right, rgba(76, 145, 255, 0.18), transparent 24%),
+          linear-gradient(180deg, #fbf7ee 0%, #f2eadf 100%);
+        color: var(--page-text);
+      }
+
+      main {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 56px 24px 72px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 18px;
+        margin-bottom: 36px;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.78rem;
+        color: var(--page-muted);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.6rem, 5vw, 4.8rem);
+        line-height: 0.95;
+        max-width: 10ch;
+      }
+
+      .intro {
+        max-width: 70ch;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: #494d48;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .theme-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(18px);
+        border: 1px solid var(--card-border);
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .theme-top {
+        padding: 22px 22px 18px;
+        min-height: 240px;
+        color: white;
+        position: relative;
+      }
+
+      .theme-tag {
+        display: inline-flex;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 8px 11px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+      }
+
+      .theme-top h2 {
+        margin: 18px 0 10px;
+        font-size: 2rem;
+        line-height: 0.95;
+      }
+
+      .theme-top p {
+        max-width: 26ch;
+        line-height: 1.45;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .theme-body {
+        padding: 22px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .sample-ui {
+        display: grid;
+        gap: 10px;
+      }
+
+      .sample-badge {
+        display: inline-flex;
+        align-self: start;
+        padding: 7px 10px;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 600;
+      }
+
+      .sample-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.05;
+      }
+
+      .sample-copy {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #4f504c;
+      }
+
+      .swatches {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .swatch {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .meta {
+        display: grid;
+        gap: 9px;
+        font-size: 0.92rem;
+      }
+
+      .meta strong {
+        display: inline-block;
+        min-width: 110px;
+      }
+
+      .recommendation {
+        margin-top: 34px;
+        padding: 22px 24px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(31, 31, 31, 0.08);
+      }
+
+      .recommendation h3 {
+        margin: 0 0 8px;
+        font-size: 1.2rem;
+      }
+
+      .recommendation p {
+        margin: 0;
+        line-height: 1.6;
+        color: #484b46;
+      }
+
+      .theme-spark {
+        position: absolute;
+        inset: auto 18px 18px auto;
+        width: 64px;
+        height: 64px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .playful-lab .theme-top {
+        background:
+          radial-gradient(circle at 20% 20%, rgba(255, 213, 120, 0.95), transparent 24%),
+          radial-gradient(circle at 80% 25%, rgba(255, 137, 174, 0.65), transparent 26%),
+          linear-gradient(135deg, #0c3b66 0%, #0f7c90 46%, #13b6b1 100%);
+      }
+
+      .playful-lab .sample-badge {
+        background: #d8fff7;
+        color: #0f6f6a;
+      }
+
+      .open-house .theme-top {
+        background:
+          radial-gradient(circle at 85% 18%, rgba(255, 255, 255, 0.18), transparent 18%),
+          linear-gradient(135deg, #7657ff 0%, #db5a82 52%, #ff9868 100%);
+      }
+
+      .open-house .sample-badge {
+        background: #ffe0ea;
+        color: #ad305d;
+      }
+
+      .bright-atelier .theme-top {
+        color: #173029;
+        background:
+          radial-gradient(circle at 78% 20%, rgba(255, 255, 255, 0.55), transparent 18%),
+          linear-gradient(135deg, #ebf6d1 0%, #8fd6b4 45%, #2eb6b0 100%);
+      }
+
+      .bright-atelier .theme-top p,
+      .bright-atelier .theme-tag {
+        color: rgba(23, 48, 41, 0.88);
+      }
+
+      .bright-atelier .theme-tag {
+        background: rgba(255, 255, 255, 0.22);
+        border-color: rgba(23, 48, 41, 0.12);
+      }
+
+      .bright-atelier .sample-badge {
+        background: #def8c8;
+        color: #447419;
+      }
+
+      .midnight-club .theme-top {
+        background:
+          radial-gradient(circle at 25% 15%, rgba(117, 250, 214, 0.3), transparent 22%),
+          radial-gradient(circle at 75% 20%, rgba(255, 192, 123, 0.35), transparent 18%),
+          linear-gradient(135deg, #112038 0%, #1a3560 58%, #2d6875 100%);
+      }
+
+      .midnight-club .sample-badge {
+        background: #d8f4ff;
+        color: #165a78;
+      }
+
+      @media (max-width: 720px) {
+        main {
+          padding: 32px 16px 48px;
+        }
+
+        .theme-top {
+          min-height: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">Natelly Brand Exploration</div>
+        <h1>Innovation with personality.</h1>
+        <p class="intro">
+          These theme profiles are built around your description of Natelly as
+          fun, open-minded, people-first, and idea-driven. Each one balances
+          modern credibility with warmth, but pushes the mood in a different
+          direction so you can decide what feels most like your company.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="theme-card playful-lab">
+          <div class="theme-top">
+            <div class="theme-tag">Best Overall Fit</div>
+            <h2>Playful Lab</h2>
+            <p>
+              A bright, inventive brand system that feels like a studio,
+              workshop, and creative playground all at once.
+            </p>
+            <div class="theme-spark"></div>
+          </div>
+          <div class="theme-body">
+            <div class="sample-ui">
+              <div class="sample-badge">Invent together</div>
+              <div class="sample-title">Big ideas grow faster in good company.</div>
+              <div class="sample-copy">
+                Rounded shapes, energetic gradients, and a friendly voice make
+                innovation feel inviting instead of corporate.
+              </div>
+            </div>
+            <div class="swatches">
+              <div class="swatch" style="background:#0c3b66;"></div>
+              <div class="swatch" style="background:#13b6b1;"></div>
+              <div class="swatch" style="background:#ffd578;"></div>
+              <div class="swatch" style="background:#ff89ae;"></div>
+            </div>
+            <div class="meta">
+              <div><strong>Mood</strong> imaginative, warm, social</div>
+              <div><strong>Type Pairing</strong> Space Grotesk + DM Sans</div>
+              <div><strong>Ideal For</strong> a modern, memorable company homepage</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="theme-card open-house">
+          <div class="theme-top">
+            <div class="theme-tag">Most Human</div>
+            <h2>Open House</h2>
+            <p>
+              A people-first direction that feels welcoming, curious, and full
+              of momentum without losing polish.
+            </p>
+            <div class="theme-spark"></div>
+          </div>
+          <div class="theme-body">
+            <div class="sample-ui">
+              <div class="sample-badge">Curious by design</div>
+              <div class="sample-title">New ideas land better when everyone feels invited.</div>
+              <div class="sample-copy">
+                Softer gradients, generous spacing, and approachable messaging
+                give Natelly a culture-led brand presence.
+              </div>
+            </div>
+            <div class="swatches">
+              <div class="swatch" style="background:#7657ff;"></div>
+              <div class="swatch" style="background:#db5a82;"></div>
+              <div class="swatch" style="background:#ff9868;"></div>
+              <div class="swatch" style="background:#fff3ec;"></div>
+            </div>
+            <div class="meta">
+              <div><strong>Mood</strong> inclusive, optimistic, expressive</div>
+              <div><strong>Type Pairing</strong> Sora + Instrument Sans</div>
+              <div><strong>Ideal For</strong> storytelling, culture, and recruiting pages</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="theme-card bright-atelier">
+          <div class="theme-top">
+            <div class="theme-tag">Freshest Look</div>
+            <h2>Bright Atelier</h2>
+            <p>
+              Crisp and airy with a creative edge, blending sustainability,
+              design thinking, and modern optimism.
+            </p>
+            <div class="theme-spark"></div>
+          </div>
+          <div class="theme-body">
+            <div class="sample-ui">
+              <div class="sample-badge">Fresh thinking</div>
+              <div class="sample-title">Build boldly, stay kind, keep moving.</div>
+              <div class="sample-copy">
+                This direction uses clean surfaces with juicy green-blue energy
+                to feel innovative without feeling cold.
+              </div>
+            </div>
+            <div class="swatches">
+              <div class="swatch" style="background:#ebf6d1;"></div>
+              <div class="swatch" style="background:#8fd6b4;"></div>
+              <div class="swatch" style="background:#2eb6b0;"></div>
+              <div class="swatch" style="background:#173029;"></div>
+            </div>
+            <div class="meta">
+              <div><strong>Mood</strong> fresh, thoughtful, future-facing</div>
+              <div><strong>Type Pairing</strong> Manrope + IBM Plex Sans</div>
+              <div><strong>Ideal For</strong> a cleaner, premium startup identity</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="theme-card midnight-club">
+          <div class="theme-top">
+            <div class="theme-tag">Most Confident</div>
+            <h2>Midnight Club</h2>
+            <p>
+              A richer, bolder direction that gives Natelly edge and confidence
+              while keeping the messaging social and open.
+            </p>
+            <div class="theme-spark"></div>
+          </div>
+          <div class="theme-body">
+            <div class="sample-ui">
+              <div class="sample-badge">Smart can still be fun</div>
+              <div class="sample-title">Where sharp ideas meet magnetic energy.</div>
+              <div class="sample-copy">
+                Strong contrast, deep tones, and bright accents make this feel
+                like the most editorial and high-impact option.
+              </div>
+            </div>
+            <div class="swatches">
+              <div class="swatch" style="background:#112038;"></div>
+              <div class="swatch" style="background:#1a3560;"></div>
+              <div class="swatch" style="background:#75fad6;"></div>
+              <div class="swatch" style="background:#ffc07b;"></div>
+            </div>
+            <div class="meta">
+              <div><strong>Mood</strong> bold, dynamic, high-energy</div>
+              <div><strong>Type Pairing</strong> Syne + General Sans</div>
+              <div><strong>Ideal For</strong> a statement-making launch page</div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="recommendation">
+        <h3>Recommended starting point</h3>
+        <p>
+          If you want Natelly to feel inventive, warm, and memorable right away,
+          start with <strong>Playful Lab</strong>. It has the best balance of
+          trust, creativity, and human energy. If you want the brand to lean
+          more culture-first and community-oriented, <strong>Open House</strong>
+          is the strongest alternate direction.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
