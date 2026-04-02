@@ -1,0 +1,17 @@
+node_modules/
+_site/
+
+# Markdown docs — not published as pages
+src/template-guide.md
+src/theme-profiles.md
+
+# Standalone HTML files with inline CSS — handled via passthrough copy
+src/templates-index.html
+src/theme-profiles.html
+src/template-01-modern-hospitality.html
+src/template-02-play-loop.html
+src/template-03-kind-current.html
+src/template-04-rally-room.html
+
+# Redirect page — handled via passthrough copy
+src/projects.html

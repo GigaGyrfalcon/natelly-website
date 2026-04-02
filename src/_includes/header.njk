@@ -1,0 +1,11 @@
+<header class="site-header">
+  <div class="site-shell nav">
+    <a class="brand" href="./index.html">Natelly</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a {% if activeNav == 'home' %}class="active" {% endif %}href="./index.html">Home</a>
+      <a href="./index.html#projects">Projects</a>
+      <a {% if activeNav == 'careers' %}class="active" {% endif %}href="./careers.html">Careers</a>
+      <a {% if activeNav == 'contact' %}class="active" {% endif %}href="./contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
