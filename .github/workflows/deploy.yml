@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 permissions:
   contents: read
   pages: write
@@ -20,6 +23,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
@@ -32,21 +38,10 @@ jobs:
       - name: Build with Eleventy
         run: npm run build
 
-      - name: Package GitHub Pages artifact
-        run: |
-          tar \
-            --directory _site \
-            --create \
-            --file github-pages.tar \
-            .
-          gzip --best github-pages.tar
-
       - name: Upload artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-pages-artifact@v4
         with:
-          name: github-pages
-          path: github-pages.tar.gz
-          retention-days: 1
+          path: "_site"
 
   deploy:
     environment:
