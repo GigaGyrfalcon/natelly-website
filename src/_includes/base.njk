@@ -1,15 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% set resolvedTitle = socialTitle or title %}
+    {% set resolvedDescription = socialDescription or description %}
+    {% set resolvedCanonicalPath = canonicalPath or page.url %}
+    {% set resolvedCanonicalUrl = site.url ~ resolvedCanonicalPath %}
+    {% set resolvedOgImage = site.url ~ (ogImage or site.defaultOgImage) %}
+    {% set resolvedOgImageAlt = ogImageAlt or site.defaultOgImageAlt %}
+    {% set resolvedOgType = ogType or "website" %}
+    {% set resolvedRobots = robots or "index,follow,max-image-preview:large" %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}" />
+    <meta name="robots" content="{{ resolvedRobots }}" />
+    <link rel="canonical" href="{{ resolvedCanonicalUrl }}" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
     <link rel="shortcut icon" href="./favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
-    <meta name="description" content="{{ description }}" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="{{ resolvedTitle }}" />
+    <meta property="og:description" content="{{ resolvedDescription }}" />
+    <meta property="og:type" content="{{ resolvedOgType }}" />
+    <meta property="og:url" content="{{ resolvedCanonicalUrl }}" />
+    <meta property="og:site_name" content="{{ site.name }}" />
+    <meta property="og:image" content="{{ resolvedOgImage }}" />
+    <meta property="og:image:alt" content="{{ resolvedOgImageAlt }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ resolvedTitle }}" />
+    <meta name="twitter:description" content="{{ resolvedDescription }}" />
+    <meta name="twitter:image" content="{{ resolvedOgImage }}" />
+    <meta name="twitter:image:alt" content="{{ resolvedOgImageAlt }}" />
     <link rel="stylesheet" href="./styles.css" />
+    {% if includeWebPageSchema != false %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": {{ title | dump | safe }},
+          "description": {{ description | dump | safe }},
+          "url": {{ resolvedCanonicalUrl | dump | safe }},
+          "isPartOf": {
+            "@type": "WebSite",
+            "name": "Natelly",
+            "url": "https://natelly.com/"
+          }
+        }
+      </script>
+    {% endif %}
+    {% if pageType == "home" %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Natelly",
+          "url": "https://natelly.com/",
+          "logo": "https://natelly.com/apple-touch-icon.png",
+          "email": "info@natelly.com",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "email": "info@natelly.com",
+              "url": "https://natelly.com/contact.html"
+            }
+          ]
+        }
+      </script>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Natelly",
+          "url": "https://natelly.com/",
+          "description": {{ site.description | dump | safe }},
+          "publisher": {
+            "@type": "Organization",
+            "name": "Natelly"
+          }
+        }
+      </script>
+    {% endif %}
+    {% if pageType == "contact" %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact Natelly",
+          "url": "https://natelly.com/contact.html",
+          "description": {{ description | dump | safe }},
+          "about": {
+            "@type": "Organization",
+            "name": "Natelly",
+            "url": "https://natelly.com/",
+            "email": "info@natelly.com"
+          }
+        }
+      </script>
+    {% endif %}
+    {% if pageType == "video-game" %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "VideoGame",
+          "name": "Broke to Billionaire",
+          "url": "https://natelly.com/broke-to-billionaire.html",
+          "description": {{ description | dump | safe }},
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "iOS",
+          "genre": [
+            "Idle game",
+            "Incremental game"
+          ],
+          "image": "https://natelly.com/assets/social/broke-to-billionaire-og.png"{% if appStoreUrl %},
+          "downloadUrl": {{ appStoreUrl | dump | safe }},
+          "installUrl": {{ appStoreUrl | dump | safe }}{% endif %},
+          "publisher": {
+            "@type": "Organization",
+            "name": "Natelly",
+            "url": "https://natelly.com/"
+          }
+        }
+      </script>
+    {% endif %}
   </head>
   <body>
     {{ content | safe }}

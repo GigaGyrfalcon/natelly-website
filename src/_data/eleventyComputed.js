@@ -1,3 +1,3 @@
 module.exports = {
-  permalink: (data) => `${data.page.filePathStem}.html`,
+  permalink: (data) => data.permalink || `${data.page.filePathStem}.html`,
 };

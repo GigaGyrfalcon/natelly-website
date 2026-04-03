@@ -672,6 +672,12 @@ h3 {
   line-height: 1.68;
 }
 
+.detail-block a {
+  color: #5e46c5;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .detail-block + .detail-block {
   margin-top: 0;
 }
