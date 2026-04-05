@@ -23,6 +23,13 @@ module.exports = {
       priority: "0.9",
     },
     {
+      url: "https://natelly.com/cotton-candy-spin.html",
+      title: "Cotton Candy Spin",
+      description: "Arcade survival game overview, screenshots, and current project details.",
+      changefreq: "weekly",
+      priority: "0.8",
+    },
+    {
       url: "https://natelly.com/contact.html",
       title: "Contact Natelly",
       description: "Project, partnership, sponsorship, and support contact details.",

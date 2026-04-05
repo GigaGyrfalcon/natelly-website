@@ -102,20 +102,22 @@
       </script>
     {% endif %}
     {% if pageType == "video-game" %}
+      {% set resolvedGameName = schemaGameName or title %}
+      {% set resolvedGameUrl = schemaGameUrl or resolvedCanonicalUrl %}
+      {% set resolvedGameGenres = schemaGameGenres or [] %}
+      {% set resolvedGameImage = site.url ~ (schemaGameImage or ogImage or site.defaultOgImage) %}
+      {% set resolvedOperatingSystem = schemaOperatingSystem or "iOS" %}
       <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "VideoGame",
-          "name": "Broke to Billionaire",
-          "url": "https://natelly.com/broke-to-billionaire.html",
+          "name": {{ resolvedGameName | dump | safe }},
+          "url": {{ resolvedGameUrl | dump | safe }},
           "description": {{ description | dump | safe }},
           "applicationCategory": "GameApplication",
-          "operatingSystem": "iOS",
-          "genre": [
-            "Idle game",
-            "Incremental game"
-          ],
-          "image": "https://natelly.com/assets/social/broke-to-billionaire-og.png"{% if appStoreUrl %},
+          "operatingSystem": {{ resolvedOperatingSystem | dump | safe }},
+          "genre": {{ resolvedGameGenres | dump | safe }},
+          "image": {{ resolvedGameImage | dump | safe }}{% if appStoreUrl %},
           "downloadUrl": {{ appStoreUrl | dump | safe }},
           "installUrl": {{ appStoreUrl | dump | safe }}{% endif %},
           "publisher": {
