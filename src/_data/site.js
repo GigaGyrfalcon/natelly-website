@@ -27,7 +27,7 @@ module.exports = {
       title: "Cotton Candy Spin",
       description: "Arcade survival game overview, screenshots, and current project details.",
       changefreq: "weekly",
-      priority: "0.8",
+      priority: "0.9",
     },
     {
       url: "https://natelly.com/contact.html",
