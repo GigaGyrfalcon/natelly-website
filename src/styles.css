@@ -650,6 +650,52 @@ h3 {
   line-height: 1.68;
 }
 
+.subscribe-block {
+  padding: 36px 40px;
+}
+
+.subscribe-block h2 {
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.subscribe-block > p {
+  margin: 0;
+  max-width: 54ch;
+  color: var(--muted);
+  line-height: 1.68;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.subscribe-form input[type="email"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(36, 29, 40, 0.12);
+  background: rgba(255, 255, 255, 0.82);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.subscribe-form input[type="email"]::placeholder {
+  color: var(--muted);
+}
+
+.subscribe-form input[type="email"]:focus {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(121, 92, 255, 0.12);
+}
+
 .detail-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
